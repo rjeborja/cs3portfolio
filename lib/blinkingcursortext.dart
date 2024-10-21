@@ -51,7 +51,7 @@ class _BlinkingCursorTextState extends State<BlinkingCursorText>
                   child: const Text(
                     '|', // Cursor
                     style: TextStyle(
-                      fontSize: 40,
+                      fontSize: 50,
                       color: Colors.pink,
                     ),
                   ),

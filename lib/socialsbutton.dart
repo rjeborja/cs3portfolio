@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'dart:html' as html;
 
 class SocialsButton extends StatelessWidget {
   final String url;
@@ -11,18 +11,12 @@ class SocialsButton extends StatelessWidget {
     required this.icon,
   }) : super(key: key);
 
-  Future<void> _launchURL() async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: _launchURL,
+      onTap: () {
+        html.window.open(url, '_blank');
+      },
       child: Container(
         decoration: BoxDecoration(
           gradient: const LinearGradient(
